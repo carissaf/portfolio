@@ -1,11 +1,67 @@
 ---
-const {title, index} = Astro.props;
+const { title, index, size = "default" } = Astro.props;
+
+const sizeClasses = {
+  default: {
+    container: "p-6",
+    headerGap: "gap-4 mb-5",
+    circle: "w-10 h-10",
+    indexText: "text-sm",
+    titleText: "text-xl",
+    slotGap: "gap-2",
+    tagText: "text-sm",
+    tagPadding: "px-3 py-1",
+  },
+  small: {
+    container: "p-5",
+    headerGap: "gap-3 mb-4",
+    circle: "w-8 h-8",
+    indexText: "text-xs",
+    titleText: "text-base",
+    slotGap: "gap-1.5",
+    tagText: "text-xs",
+    tagPadding: "px-2 py-0.5",
+  },
+};
+
+const styles = sizeClasses[size] ?? sizeClasses.default;
 ---
-<div class="border rounded-xl lg:p-6 p-5">
-    <!--<h3 class="index font-light text-xl rounded-full after:aspect-square">{index}</h3>-->
-    <div class="bg-light-blue rounded-full lg:w-12 lg:h-12 w-8 h-8 flex justify-center items-center lg:mb-10 mb-5">
-        <h3 class="font-light lg:text-lg md:text-base text-sm text-white">{index.toString().padStart(2, '0')}</h3>
+
+<div
+  class={`
+    group
+    rounded-2xl
+    border-[1.8px] border-black/10
+    bg-white
+    ${styles.container}
+    transition
+    ease-in-out
+    duration-300
+    hover:-translate-y-1
+    hover:shadow-lg
+  `}
+>
+  <div class={`flex items-center ${styles.headerGap}`}>
+    <div
+      class={`
+        flex items-center justify-center
+        rounded-full
+        border-[1.5px] border-light-blue/40
+        text-light-blue
+        ${styles.circle}
+      `}
+    >
+      <span class={`font-medium ${styles.indexText}`}>
+        {index.toString().padStart(2, "0")}
+      </span>
     </div>
-    <h3 class="font-light lg:text-2xl md:text-xl text-lg">{title}</h3>
-    <slot/>
+
+    <h3 class={`font-medium ${styles.titleText}`}>
+      {title}
+    </h3>
+  </div>
+
+  <div class={`flex flex-wrap ${styles.slotGap}`}>
+    <slot />
+  </div>
 </div>

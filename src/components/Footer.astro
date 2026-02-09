@@ -1,47 +1,68 @@
 ---
-import GitHubIcon from "./icons/GitHubIcon.astro"
-import InstagramIcon from "./icons/InstagramIcon.astro"
-import LinkedInIcon from "./icons/LinkedInIcon.astro"
+import GitHubIcon from "./icons/GitHubIcon.astro";
+import InstagramIcon from "./icons/InstagramIcon.astro";
+import LinkedInIcon from "./icons/LinkedInIcon.astro";
 
-const {className} = Astro.props
+const { className } = Astro.props;
 
-const links = ['/home', '/about', '/projects']
+const links = ["/home", "/about", "/projects"];
 ---
 
-<footer class={className + ' w-full bg-dark-blue text-yellow mt-32 md:mt-20 md:px-[7vw] px-6 content-center md:py-32 py-20 min-h-fit'}>
-    <div class="flex lg:flex-row flex-col">
-        <div class="lg:mr-44 mb-10">
-            <h1 class="md:text-3xl font-normal text-white opacity-50 lg:mb-10 mb-5">Say Hello</h1>
-            <a class="md:text-xl text-lg font-light" href="mailto:carissa.fabellina@gmail.com">carissa.fabellina@gmail.com</a>
-        </div>
-
-        <div>
-            <h1 class="md:text-3xl font-normal text-white opacity-50 lg:mb-10 mb-5">Navigation</h1>
-            <div class="grid gap-5">
-                {links.map(link => {
-                    return (
-                        <a class="md:text-xl text-lg font-light" href={link === "/home" ? "/" : link}>{link}</a>
-                    )
-                })}
-            </div>
-        </div>
+<footer
+  class={className +
+    " w-full bg-dark-blue text-yellow mt-32 md:mt-20 md:px-[7vw] px-6 content-center md:py-32 py-20 min-h-fit"}
+>
+  <div class="flex lg:flex-row flex-col">
+    <div class="lg:mr-44 mb-10">
+      <h1 class="md:text-3xl font-normal text-white opacity-50 lg:mb-10 mb-5">
+        Say Hello
+      </h1>
+      <a
+        class="md:text-xl text-lg font-light"
+        href="mailto:carissafabellinaa@gmail.com">carissafabellinaa@gmail.com</a
+      >
     </div>
 
-    <div class="md:pt-10 pt-5 mt-36 border-t-yellow border-t flex md:flex-row flex-col-reverse md:items-center justify-between">
-        <p class="font-light md:text-lg text-xs md:mt-0 mt-10">Designed and built by Carissa</p>
-
-        <div class="flex flex-wrap gap-4">
-            <a href="https://www.linkedin.com/in/carissafabellina/" target="_blank">
-                <LinkedInIcon className="md:w-8 w-7"/>
-            </a>
-
-            <a href="https://github.com/carissaf" target="_blank">
-                <GitHubIcon className="md:w-8 w-7"/>
-            </a>
-
-            <a href="" target="_blank">
-                <InstagramIcon className="md:w-8 w-7"/>
-            </a>
-        </div>
+    <div>
+      <h1 class="md:text-3xl font-normal text-white opacity-50 lg:mb-10 mb-5">
+        Navigation
+      </h1>
+      <div class="grid gap-5">
+        {
+          links.map((link) => {
+            return (
+              <a
+                class="md:text-xl text-lg font-light"
+                href={link === "/home" ? "/" : link}
+              >
+                {link}
+              </a>
+            );
+          })
+        }
+      </div>
     </div>
+  </div>
+
+  <div
+    class="md:pt-10 pt-5 mt-36 border-t-yellow border-t flex md:flex-row flex-col-reverse md:items-center justify-between"
+  >
+    <p class="font-light md:text-base text-xs md:mt-0 mt-10">
+      Designed and built by Carissa (me) :>
+    </p>
+
+    <div class="flex flex-wrap gap-4">
+      <a href="https://www.linkedin.com/in/carissafabellina/" target="_blank">
+        <LinkedInIcon className="md:w-8 w-7" />
+      </a>
+
+      <a href="https://github.com/carissaf" target="_blank">
+        <GitHubIcon className="md:w-8 w-7" />
+      </a>
+
+      <a href="https://www.instagram.com/cariss.aa/" target="_blank">
+        <InstagramIcon className="md:w-8 w-7" />
+      </a>
+    </div>
+  </div>
 </footer>
